@@ -1,5 +1,13 @@
 /* 重置默认样式 */
-* {
+* {       /** 通配符选择器：作用于所有HTML元素
+
+  margin: 0：清除所有元素默认外边距
+  
+  padding: 0：清除所有元素默认内边距
+  
+  box-sizing: border-box：设置盒模型计算方式，使元素的 width/height 包含边框和内边距
+  **/
+  
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,45 +15,49 @@
   
   /* 导航栏容器 */
   .globalnav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 44px;
-    background: rgba(0, 0, 0, 0.92);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    z-index: 1000;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    position: fixed;     /* 固定定位 */
+    top: 0;              /* 紧贴顶部 */
+    left: 0;             /* 紧贴左侧 */
+    width: 100%;         /* 全屏宽度 */
+    height: 44px;        /* 苹果标准导航栏高度 */
+    background: rgba(0, 0, 0, 0.92); /* 半透明黑色背景 */
+    -webkit-backdrop-filter: blur(20px); /* Safari兼容 */
+    backdrop-filter: blur(20px);    /* 毛玻璃效果 */
+    z-index: 1000;       /* 确保导航栏在最顶层 */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif; /* 苹果系统字体 */
   }
   
   /* 导航菜单容器 */
   .globalnav-menu {
-    max-width: 1024px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0 22px;
+    max-width: 1024px;   /* 最大内容宽度 */
+    margin: 0 auto;      /* 水平居中 */
+    display: flex;       /* 启用弹性布局 */
+    justify-content: space-between; /* 子项两端对齐 */
+    list-style: none;    /* 去除列表符号 */
+    padding: 0 22px;     /* 左右内边距 */
   }
   
   /* 导航项 */
   .globalnav-item {
-    position: static;
+    position: static; /* 关键：允许下拉菜单基于导航栏定位 */
   }
   
   /* 导航链接 */
   .globalnav-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 44px;
-    padding: 0 10px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-    display: block;
-    position: relative;
-    z-index: 1;
+    color: #fff;            /* 白色文字 */
+    text-decoration: none;  /* 去除下划线 */
+    font-size: 12px;        /* 苹果标准字号 */
+    line-height: 44px;      /* 垂直居中 */
+    padding: 0 10px;        /* 左右内边距 */
+    opacity: 0.8;           /* 初始透明度 */
+    transition: opacity 0.3s; /* 透明度过渡动画 */
+    display: block;         /* 块级元素特性 */
+    position: relative;     /* 相对定位上下文 */
+    z-index: 1;             /* 确保链接在下拉菜单上方 */
+  }
+  
+  .globalnav-link:hover {
+    opacity: 1;             /* 悬停时完全不透明 */
   }
   
   .globalnav-link:hover {
@@ -54,101 +66,101 @@
   
   /* 下拉菜单 */
   .globalnav-submenu {
-    position: absolute;
-    top: 100%;
+    position: absolute;     /* 绝对定位 */
+    top: 100%;              /* 紧贴父元素底部 */
     left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.96);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-    transform: translateY(10px);
-    pointer-events: none;
+    width: 100%;            /* 与导航栏同宽 */
+    background: rgba(255, 255, 255, 0.96); /* 半透明白色 */
+    -webkit-backdrop-filter: blur(20px); 
+    backdrop-filter: blur(20px); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 底部细边框 */
+    opacity: 0;             /* 初始透明 */
+    visibility: hidden;     /* 隐藏元素但保留布局空间 */
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); /* 复合动画 */
+    transform: translateY(10px); /* 初始下移10px */
+    pointer-events: none;   /* 禁用鼠标交互 */
   }
   
   .globalnav-item:hover .globalnav-submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
+    opacity: 1;             /* 完全不透明 */
+    visibility: visible;    /* 显示元素 */
+    transform: translateY(0); /* 复位位置 */
+    pointer-events: auto;   /* 启用鼠标交互 */
   }
   
   /* 下拉内容布局 */
   .submenu-content {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 20px 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    max-width: 1024px;      /* 内容最大宽度 */
+    margin: 0 auto;         /* 水平居中 */
+    padding: 20px 0;        /* 上下内边距 */
+    display: grid;          /* 网格布局 */
+    grid-template-columns: repeat(4, 1fr); /* 4列等宽 */
+    gap: 20px;              /* 列间距 */
   }
   
   .submenu-section {
-    padding: 10px;
+    padding: 10px;          /* 区块内边距 */
   }
   
   .submenu-heading {
-    color: #000;
+    color: #000;            /* 黑色标题 */
     font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-weight: 600;       /* 中等加粗 */
+    margin-bottom: 10px;    /* 标题与列表间距 */
   }
   
   .submenu-list {
-    list-style: none;
+    list-style: none;       /* 去除列表符号 */
   }
   
   .submenu-item {
-    margin-bottom: 6px;
+    margin-bottom: 6px;     /* 列表项间距 */
   }
   
   .submenu-link {
-    color: #666;
+    color: #666;            /* 灰色文字 */
     text-decoration: none;
     font-size: 12px;
-    transition: color 0.3s;
+    transition: color 0.3s; /* 颜色过渡动画 */
   }
   
   .submenu-link:hover {
-    color: #000;
+    color: #000;            /* 悬停变黑色 */
   }
   
   /* 移动端适配 */
   @media (max-width: 768px) {
     .globalnav {
-      position: relative;
-      height: auto;
-      padding: 8px 0;
+      position: relative;   /* 解除固定定位 */
+      height: auto;         /* 高度自适应 */
+      padding: 8px 0;       /* 上下内边距 */
     }
   
     .globalnav-menu {
-      flex-direction: column;
-      padding: 0;
+      flex-direction: column; /* 垂直排列 */
+      padding: 0;           /* 去除左右内边距 */
     }
   
     .globalnav-item {
-      position: relative;
+      position: relative;   /* 为子菜单创建定位上下文 */
     }
   
     .globalnav-link {
-      padding: 12px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;   /* 增大点击区域 */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 分割线 */
     }
   
     .globalnav-submenu {
-      position: static;
-      display: none;
-      background: rgba(0, 0, 0, 0.8);
-      transform: none;
-      transition: none;
+      position: static;     /* 恢复默认定位 */
+      display: none;        /* 初始隐藏 */
+      background: rgba(0, 0, 0, 0.8); /* 深色背景 */
+      transform: none;      /* 禁用动画位移 */
+      transition: none;     /* 禁用过渡动画 */
     }
   
     .globalnav-item.is-active .globalnav-submenu {
-      display: block;
-      opacity: 1;
+      display: block;       /* 显示下拉菜单 */
+      opacity: 1;           /* 确保完全可见 */
       visibility: visible;
     }
   }

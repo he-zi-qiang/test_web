@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
+  <!-- 基础元数据 -->
   <meta charset="UTF-8">
+  <!-- 移动端视口适配 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apple Navigation</title>
+  <title>苹果风格导航栏</title>
+  <!-- 引入样式文件 -->
   <link rel="stylesheet" href="/apple/static/css/style.css">
 </head>
 <body>
-  <nav class="globalnav">
+  <!-- 导航栏主容器 -->
+  <nav class="globalnav">    <!-- <nav> 作为底板：固定整个导航栏的位置-->
+    <!-- 导航菜单列表 -->
     <ul class="globalnav-menu">
-      <li class="globalnav-item">
+      <!-- 单个导航项 -->
+      <li class="globalnav-item">  <!-- <ul>/<li> 作为支柱：构建导航项的基本结构-->
+        <!-- 主导航链接 -->
         <a href="#" class="globalnav-link">Mac</a>
-        <div class="globalnav-submenu">
+        <!-- 下拉菜单容器 -->
+        <div class="globalnav-submenu"> <!--<div> 作为扩展模块：承载复杂的下拉内容-->
+          <!-- 下拉内容网格布局 -->
           <div class="submenu-content">
+            <!-- 子菜单分类区块 -->
             <div class="submenu-section">
-              <h3 class="submenu-heading">MacBook</h3>
+              <h3 class="submenu-heading">MacBook系列</h3>
+              <!-- 子菜单项列表 -->
               <ul class="submenu-list">
                 <li><a href="#" class="submenu-link">MacBook Air</a></li>
                 <li><a href="#" class="submenu-link">MacBook Pro 13"</a></li>
                 <li><a href="#" class="submenu-link">MacBook Pro 16"</a></li>
               </ul>
             </div>
-            <!-- 更多子菜单区块 -->
+            <!-- 更多子菜单区块可在此添加 -->
           </div>
         </div>
       </li>
-      <!-- 其他导航项 -->
+      <!-- 复制此结构可添加更多导航项 -->
     </ul>
   </nav>
+  <!-- 引入JavaScript文件 -->
   <script src="/apple/static/js/style.js"></script>
 </body>
 </html>
